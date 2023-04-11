@@ -1,0 +1,123 @@
+﻿@using Microsoft.AspNetCore.Http;
+@{
+    Layout = null;
+    string controlador = ViewContext.RouteData.Values["controller"].ToString().ToLower();
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Página Principal</title>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.css" />
+    <!--HighChart-->
+    <link href="~/lib/bootstrap/dist/css/highcharts.css" rel="stylesheet" />
+    <!--Datatables-->
+    <link href="~/DataTables/datatables.min.css" rel="stylesheet" />
+    <link href="~/DataTables/DataTables-1.12.1/css/dataTables.semanticui.min.css" rel="stylesheet" />
+    <link href="~/DataTables/DataTables-1.12.1/css/dataTables.foundation.min.css" rel="stylesheet" />
+    <!--JQuery-->
+    <script src="~/lib/jquery/dist/jquery-3.6.1.min.js"></script>
+    <!--HighChart-->
+    <script src="~/lib/jquery/dist/highcharts.js"></script>
+    <script src="~/lib/jquery/dist/highcharts-3d.js"></script>
+    <script src="~/lib/jquery/dist/highcharts-more.js"></script>
+    <script src="~/lib/jquery/dist/exporting.js"></script>
+    <script src="~/lib/jquery/dist/offline-exporting.js"></script>
+    @RenderSection("scripts", required: false)
+    @RenderSection("style", required: false)
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary bg-gradient">
+        <div class="container-fluid">
+            <a class="navbar-brand text-light fw-bold" href="~/Home/Index">ByteBusterTEC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <a class="nav-link text-white" href="#">Nosotros</a>
+                    <a class="nav-link text-white" href="~/Usuario/Registrar">Regístrate</a>
+                    <li class="nav-item">
+                        <!--Condicion de Login-->
+                        @if (false)
+                        {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="~/Usuario/Perfil">Perfil</a></li>
+                                <li><a class="dropdown-item" href="~/EstablecimientosDeSalud/Index">Cerrar Sesión</a></li>
+                            </ul>
+                        </li>
+                        }
+                        else
+                        {
+                        <a class="nav-link text-white" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                        }
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Login Modal-->
+    @*@await RenderSectionAsync("Login", required: false)*@
+
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Iniciar sesión</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" asp-action="Login" asp-controller="Login">
+                        <div class="mb-3">
+                            <label for="Email" class="form-label">Email</label>
+                            @*<input asp-for="Email" class="form-control" />*@
+
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+
+                            <div id="emailHelp" class="form-text">No compartiremos tu correo con nadie más.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Contrasena" class="form-label">Contraseña</label>
+                            @*<input asp-for="Contrasena" class="form-control" type="password" />*@
+
+                            <input type="password" class="form-control" id="password">
+
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Recuérdame</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Iniciar sesión</button>
+                        <a class="nav-link" href="~/Usuario/Registrar">¿No tienes cuenta? Regístrate</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    <!--Mapa de Google-->
+    @RenderSection("scriptsBody", required: false)
+    <!--Bootstrap-->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!--DataTables-->
+    <script src="~/DataTables/datatables.min.js"></script>
+    <!--ResponseModel-->
+    <script src="~/lib/jquery/dist/ini.js"></script>
+    <script src="~/lib/jquery/dist/jquery.form.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>
