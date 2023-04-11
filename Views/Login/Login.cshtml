@@ -1,0 +1,36 @@
+﻿@model BBT_Plataforma_Establecimientos_De_Salud.Models.DB.Usuario
+@{
+    ViewData["Title"] = "Index";
+}
+@*@section Login{
+
+}*@
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Iniciar sesión</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" asp-action="Login" asp-controller="Login">
+                    <div class="mb-3">
+                        <label for="Email" class="form-label">Email</label>
+                        <input asp-for="Email" class="form-control" />
+                        <div id="emailHelp" class="form-text">No compartiremos tu correo con nadie más.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Contrasena" class="form-label">Contraseña</label>
+                        <input asp-for="Contrasena" class="form-control" type="password" />
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">Recuérdame</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Iniciar sesión</button>
+                    <a class="nav-link" href="~/Usuario/Registrar">¿No tienes cuenta? Regístrate</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

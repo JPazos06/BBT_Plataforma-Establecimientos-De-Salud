@@ -28,4 +28,22 @@ public partial class EstablecimientoDeSalud
     public virtual ICollection<Busquedum> Busqueda { get; set; } = new List<Busquedum>();
 
     public virtual ICollection<Valoracion> Valoracions { get; set; } = new List<Valoracion>();
+    //Metodos
+    public List<EstablecimientoDeSalud> Buscar(string criterio)
+    {
+        List<EstablecimientoDeSalud> ListEst = new List<EstablecimientoDeSalud>();
+        try
+        {
+            using (var db = new Models.DB.BbtEstablecimientosDeSaludContext())
+            {
+                var EstSalud = from datos in db.EstablecimientoDeSaluds select datos;
+                ListEst = EstSalud.Where(e => e.Nombre.Contains(criterio)).ToList();
+            }
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+        return ListEst;
+    }
 }

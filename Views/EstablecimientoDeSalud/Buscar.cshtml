@@ -1,0 +1,8 @@
+﻿@model List<BBT_Plataforma_Establecimientos_De_Salud.Models.DB.EstablecimientoDeSalud>;
+@{
+    ViewData["Title"] = "Buscar";
+}
+@foreach (var item in Model)
+{
+    <p>@item.Nombre</p>
+}
