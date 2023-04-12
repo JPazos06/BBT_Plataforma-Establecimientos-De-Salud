@@ -11,5 +11,10 @@ namespace BBT_Plataforma_Establecimientos_De_Salud.Controllers
             var listEst = objEst.Buscar(criterio);
             return View(listEst);
         }
+        public IActionResult Detalle(string establecimiento)
+        {
+            EstablecimientoDeSalud objEst = new EstablecimientoDeSalud();
+            return View();
+        }
     }
 }

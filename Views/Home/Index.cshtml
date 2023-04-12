@@ -67,7 +67,12 @@
                 <div class="card-body">
                     <h5 class="card-title">Item 1</h5>
                     <p class="card-text">Description of Item 1.</p>
-                    <a href="#" class="btn btn-info">Ver Detalles</a>
+                    @using (Html.BeginForm("Detalle", "EstablecimientoDeSalud", FormMethod.Post))
+                    {
+                        <div class="d-flex">
+                            <button type="submit" class="btn btn-info">Ver Detalles</button>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
@@ -78,7 +83,12 @@
                 <div class="card-body">
                     <h5 class="card-title">Item 2</h5>
                     <p class="card-text">Description of Item 2.</p>
-                    <a href="#" class="btn btn-info">Ver Detalles</a>
+                    @using (Html.BeginForm("Detalle", "EstablecimientoDeSalud", FormMethod.Post))
+                    {
+                        <div class="d-flex">
+                            <button type="submit" class="btn btn-info">Ver Detalles</button>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
@@ -89,7 +99,12 @@
                 <div class="card-body">
                     <h5 class="card-title">Item 3</h5>
                     <p class="card-text">Description of Item 3.</p>
-                    <a href="#" class="btn btn-info">Ver Detalles</a>
+                    @using (Html.BeginForm("Detalle", "EstablecimientoDeSalud", FormMethod.Post))
+                    {
+                        <div class="d-flex">
+                            <button type="submit" class="btn btn-info">Ver Detalles</button>
+                        </div>
+                    }
                 </div>
             </div>
         </div>
