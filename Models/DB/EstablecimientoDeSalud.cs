@@ -46,4 +46,21 @@ public partial class EstablecimientoDeSalud
         }
         return ListEst;
     }
+    public EstablecimientoDeSalud BuscarId (int EstId)
+    {
+        EstablecimientoDeSalud objEst = new EstablecimientoDeSalud();
+        try
+        {
+            using (var db = new Models.DB.BbtEstablecimientosDeSaludContext())
+            {
+                var EstSalud = from datos in db.EstablecimientoDeSaluds select datos;
+                objEst = EstSalud.Where(e => e.Id == EstId).FirstOrDefault();
+            }
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+        return objEst;
+    }
 }

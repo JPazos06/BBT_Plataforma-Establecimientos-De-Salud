@@ -1,23 +1,58 @@
-﻿@model List<BBT_Plataforma_Establecimientos_De_Salud.Models.DB.EstablecimientoDeSalud>;
+﻿@model BBT_Plataforma_Establecimientos_De_Salud.Models.DB.EstablecimientoDeSalud;
 @{
-    ViewData["Title"] = "Buscar";
+    ViewData["Title"] = "Detalle";
 }
-<div id="Detalle" class="container bg-light align-self-center">
-    <h1 class="align-self-center text-primary fw-bold text-center">RESULTADOS</h1>
+@section scripts{
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script>
+        // Inicializar y añadir el mapa
+        function initMap() {
+            // La localizacion de Tacna
+            const estS = {
+                lat: @Html.Raw(Model.Latitud.ToString().Replace(',', '.')),
+                lng: @Html.Raw(Model.Longitud.ToString().Replace(',', '.'))
+            };
+            // El mapa centrado en Tacna
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 15,
+                center: estS,
+            });
+            // El marcador, posicionado en el establecimiento de Salud
+            const marker = new google.maps.Marker({
+                position: estS,
+                map: map,
+            });
+        }
+
+        window.initMap = initMap;
+    </script>
+}
+@section style {
+    <style>
+        #map {
+            width: 50%;
+            height: 50vh
+        }
+    </style>
+}
+@section scriptsBody{
+    <!-- Script para llamar a la API de Google Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbRC-cA8A-wCyTJoPe2wLtOk1_9aPzVCA&callback=initMap&v=weekly"
+            defer></script>
+}
+<div class="container bg-light align-self-center">
+    <h1 class="align-self-center text-primary fw-bold text-center">@Model.Nombre</h1>
     <div class="row">
-        @foreach (var item in Model)
-        {
-            <div class="col-md-4">
-                <div class="card">
-                    <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">@item.Nombre</h5>
-                        <p class="card-text">@item.Descripcion</p>
-                        <a href="#" class="btn btn-info">Ver Detalles</a>
-                    </div>
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Nombre</h5>
+                    <p class="card-text">@Model.Descripcion</p>
+                    <p class="card-text">@Model.Direccion</p>
                 </div>
             </div>
-            <br />
-        }
+        </div>
+        <div id="map" class="col-md-4"></div>
     </div>
 </div>

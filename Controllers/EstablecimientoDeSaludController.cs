@@ -5,16 +5,18 @@ namespace BBT_Plataforma_Establecimientos_De_Salud.Controllers
 {
     public class EstablecimientoDeSaludController : Controller
     {
+        EstablecimientoDeSalud Est = new EstablecimientoDeSalud();
         public IActionResult Buscar(string criterio)
         {
             EstablecimientoDeSalud objEst = new EstablecimientoDeSalud();
             var listEst = objEst.Buscar(criterio);
             return View(listEst);
         }
-        public IActionResult Detalle(string establecimiento)
+        public IActionResult Detalle(int EstId)
         {
             EstablecimientoDeSalud objEst = new EstablecimientoDeSalud();
-            return View();
+            var IdEst = objEst.BuscarId(EstId);
+            return View(IdEst);
         }
     }
 }
