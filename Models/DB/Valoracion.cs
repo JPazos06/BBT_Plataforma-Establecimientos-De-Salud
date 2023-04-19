@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 
 namespace BBT_Plataforma_Establecimientos_De_Salud.Models.DB;
@@ -18,4 +19,54 @@ public partial class Valoracion
     public virtual EstablecimientoDeSalud Establecimiento { get; set; } = null!;
 
     public virtual Usuario Usuario { get; set; } = null!;
+
+    public void Guardar()
+    {
+        try
+        {
+            using (var db = new BbtEstablecimientosDeSaludContext())
+            {
+                db.Entry(this).State = EntityState.Added;
+                db.SaveChanges();
+            }
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+    }
+    public Valoracion BuscarId(int EstId)
+    {
+        Valoracion objEst = new Valoracion();
+        try
+        {
+            using (var db = new Models.DB.BbtEstablecimientosDeSaludContext())
+            {
+                var valo = from datos in db.Valoracions select datos;
+                objEst = valo.Where(e => e.EstablecimientoId == EstId).FirstOrDefault();
+            }
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+        return objEst;
+    }
+    public List<Valoracion> ListarId(int EstId)
+    {
+        List<Valoracion> objEst = new List<Valoracion>();
+        try
+        {
+            using (var db = new Models.DB.BbtEstablecimientosDeSaludContext())
+            {
+                var valo = from datos in db.Valoracions select datos;
+                objEst = valo.Where(e => e.EstablecimientoId == EstId).ToList();
+            }
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+        return objEst;
+    }
 }

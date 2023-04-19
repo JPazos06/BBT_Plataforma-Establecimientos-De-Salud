@@ -189,6 +189,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\css\\star-rating.min.css",
+      "PackagePath": "staticwebassets\\css\\star-rating.min.css"
+    },
+    {
       "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
@@ -201,8 +205,16 @@
       "PackagePath": "staticwebassets\\img\\Clinica2.png"
     },
     {
+      "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\js\\locales\\es.js",
+      "PackagePath": "staticwebassets\\js\\locales\\es.js"
+    },
+    {
       "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\js\\star-rating.min.js",
+      "PackagePath": "staticwebassets\\js\\star-rating.min.js"
     },
     {
       "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\lib\\bootstrap\\LICENSE",
@@ -467,6 +479,78 @@
     {
       "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\lib\\jquery\\dist\\offline-exporting.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\offline-exporting.js"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\themes\\krajee-fa\\theme.css",
+      "PackagePath": "staticwebassets\\themes\\krajee-fa\\theme.css"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\themes\\krajee-fa\\theme.js",
+      "PackagePath": "staticwebassets\\themes\\krajee-fa\\theme.js"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\themes\\krajee-fa\\theme.min.css",
+      "PackagePath": "staticwebassets\\themes\\krajee-fa\\theme.min.css"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\themes\\krajee-fa\\theme.min.js",
+      "PackagePath": "staticwebassets\\themes\\krajee-fa\\theme.min.js"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\themes\\krajee-fas\\theme.css",
+      "PackagePath": "staticwebassets\\themes\\krajee-fas\\theme.css"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\themes\\krajee-fas\\theme.js",
+      "PackagePath": "staticwebassets\\themes\\krajee-fas\\theme.js"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\themes\\krajee-fas\\theme.min.css",
+      "PackagePath": "staticwebassets\\themes\\krajee-fas\\theme.min.css"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\themes\\krajee-fas\\theme.min.js",
+      "PackagePath": "staticwebassets\\themes\\krajee-fas\\theme.min.js"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\themes\\krajee-gly\\theme.js",
+      "PackagePath": "staticwebassets\\themes\\krajee-gly\\theme.js"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\themes\\krajee-gly\\theme.min.js",
+      "PackagePath": "staticwebassets\\themes\\krajee-gly\\theme.min.js"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\themes\\krajee-svg\\theme.css",
+      "PackagePath": "staticwebassets\\themes\\krajee-svg\\theme.css"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\themes\\krajee-svg\\theme.js",
+      "PackagePath": "staticwebassets\\themes\\krajee-svg\\theme.js"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\themes\\krajee-svg\\theme.min.css",
+      "PackagePath": "staticwebassets\\themes\\krajee-svg\\theme.min.css"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\themes\\krajee-svg\\theme.min.js",
+      "PackagePath": "staticwebassets\\themes\\krajee-svg\\theme.min.js"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\themes\\krajee-uni\\theme.css",
+      "PackagePath": "staticwebassets\\themes\\krajee-uni\\theme.css"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\themes\\krajee-uni\\theme.js",
+      "PackagePath": "staticwebassets\\themes\\krajee-uni\\theme.js"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\themes\\krajee-uni\\theme.min.css",
+      "PackagePath": "staticwebassets\\themes\\krajee-uni\\theme.min.css"
+    },
+    {
+      "Id": "C:\\Users\\joshu\\source\\repos\\BBT_Plataforma-Establecimientos-De-Salud\\wwwroot\\themes\\krajee-uni\\theme.min.js",
+      "PackagePath": "staticwebassets\\themes\\krajee-uni\\theme.min.js"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.BBT_Plataforma-Establecimientos-De-Salud.Microsoft.AspNetCore.StaticWebAssets.props",

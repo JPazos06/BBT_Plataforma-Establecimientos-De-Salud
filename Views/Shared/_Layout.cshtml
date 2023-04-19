@@ -3,7 +3,6 @@
 @{
     Layout = null;
     string controlador = ViewContext.RouteData.Values["controller"].ToString().ToLower();
-
 }
 
 <!DOCTYPE html>
@@ -22,6 +21,10 @@
     <link href="~/DataTables/datatables.min.css" rel="stylesheet" />
     <link href="~/DataTables/DataTables-1.12.1/css/dataTables.semanticui.min.css" rel="stylesheet" />
     <link href="~/DataTables/DataTables-1.12.1/css/dataTables.foundation.min.css" rel="stylesheet" />
+
+    <!--Bootstrap-->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!--JQuery-->
     <script src="~/lib/jquery/dist/jquery-3.6.1.min.js"></script>
     <!--HighChart-->
@@ -30,6 +33,13 @@
     <script src="~/lib/jquery/dist/highcharts-more.js"></script>
     <script src="~/lib/jquery/dist/exporting.js"></script>
     <script src="~/lib/jquery/dist/offline-exporting.js"></script>
+    <!--Rating-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link href="~/css/star-rating.min.css" rel="stylesheet" />
+    <script src="~/js/star-rating.min.js"></script>
+    <link href="~/themes/krajee-fas/theme.min.css" rel="stylesheet" />
+    <script src="~/themes/krajee-fas/theme.min.js"></script>
+
     @RenderSection("scripts", required: false)
     @RenderSection("style", required: false)
 </head>
@@ -43,77 +53,47 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <a class="nav-link text-white" href="#">Nosotros</a>
-                    <a class="nav-link text-white" href="~/Usuario/Registrar">Regístrate</a>
-                    <li class="nav-item">
-                        <!--Condicion de Login-->
-                        @if (@HttpContextAccessor.HttpContext.Session.GetString("UsuarioNombre") != null)
-                        {
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    @HttpContextAccessor.HttpContext.Session.GetString("UsuarioNombre")
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="~/Usuario/Perfil">Perfil</a></li>
-                                <li><a class="dropdown-item" href="~/EstablecimientosDeSalud/Index">Cerrar Sesión</a></li>
-                            </ul>
-                        </li>
-                        }
-                        else
-                        {
-                        <a class="nav-link text-white" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
-                        }
+                    @if (HttpContextAccessor.HttpContext.Session.GetString("UsuarioNombre") != null)
+                    {
+                        
+                    }
+                    else
+                    {
+                        <a class="nav-link text-white" href="~/Usuario/Registrar">Regístrate</a>
+                    }
+                    @if (@HttpContextAccessor.HttpContext.Session.GetString("UsuarioNombre") != null)
+                    {
+                        <li class="nav-item">
+                            <!--Condicion de Login-->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" role="button">
+                                        @HttpContextAccessor.HttpContext.Session.GetString("UsuarioNombre")
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="~/Usuario/Perfil">Perfil</a></li>
+                                    <li><a class="dropdown-item" href="~/EstablecimientosDeSalud/Index">Cerrar Sesión</a></li>
+                                </ul>
+                            </li>
+                      </li>
+                        
+                    }
+                    else
+                    {
 
-                    </li>
+                        <a class="nav-link text-white" href="~/Login/Login">Login</a>
+                    }
+                    
                 </ul>
             </div>
         </div>
     </nav>
-    <!--Login Modal-->
-    @*@await RenderSectionAsync("Login", required: false)*@
 
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="loginModalLabel">Iniciar sesión</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form method="post" asp-action="Login" asp-controller="Login">
-                        <div class="mb-3">
-                            <label for="Email" class="form-label">Email</label>
-                            @*<input asp-for="Email" class="form-control" />*@
-
-                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-
-                            <div id="emailHelp" class="form-text">No compartiremos tu correo con nadie más.</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Contrasena" class="form-label">Contraseña</label>
-                            @*<input asp-for="Contrasena" class="form-control" type="password" />*@
-
-                            <input type="password" class="form-control" id="password">
-
-                        </div>
-                        <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="rememberMe">
-                            <label class="form-check-label" for="rememberMe">Recuérdame</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary mt-3">Iniciar sesión</button>
-                        <a class="nav-link" href="~/Usuario/Registrar">¿No tienes cuenta? Regístrate</a>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
     <div>
         @RenderBody()
     </div>
     <!--Mapa de Google-->
     @RenderSection("scriptsBody", required: false)
-    <!--Bootstrap-->
-    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  
     <!--DataTables-->
     <script src="~/DataTables/datatables.min.js"></script>
     <!--ResponseModel-->

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<BBT_Plataforma_Establecimientos_De_Salud.Models.DB.EstablecimientoDeSalud>
+@{
     ViewData["Title"] = "Index";
 }
 @section scripts{
@@ -11,8 +12,16 @@
             // El mapa centrado en Tacna
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 15,
+                mapId: '54cee5be7cf638f8',
                 center: tacna,
             });
+        @foreach (var items in Model)
+        {
+            @Html.Raw(
+            // Lost marcadores, posicionados en los establecimientos de Salud
+            "const"+items.Id+" = new google.maps.Marker({position: {lat:"+items.Latitud.ToString().Replace(',', '.')+",lng:"+items.Longitud.ToString().Replace(',', '.')+"}, map: map,});")
+        }
+        
         }
 
         window.initMap = initMap;
@@ -28,7 +37,7 @@
 }
 @section scriptsBody{
     <!-- Script para llamar a la API de Google Maps -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbRC-cA8A-wCyTJoPe2wLtOk1_9aPzVCA&callback=initMap&v=weekly"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbRC-cA8A-wCyTJoPe2wLtOk1_9aPzVCA&v=beta&callback=initMap&v=weekly"
             defer></script>
 }
 <!--Primera Parte-->

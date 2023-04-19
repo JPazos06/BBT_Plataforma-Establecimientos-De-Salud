@@ -63,4 +63,21 @@ public partial class EstablecimientoDeSalud
         }
         return objEst;
     }
+    public List<EstablecimientoDeSalud> Listar()
+    {
+        List<EstablecimientoDeSalud> objEst = new List<EstablecimientoDeSalud>();
+        try
+        {
+            using (var db = new Models.DB.BbtEstablecimientosDeSaludContext())
+            {
+                var EstSalud = from datos in db.EstablecimientoDeSaluds select datos;
+                objEst = EstSalud.ToList();
+            }
+        }
+        catch (Exception ex)
+        {
+            throw;
+        }
+        return objEst;
+    }
 }
